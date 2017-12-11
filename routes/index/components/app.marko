@@ -1,0 +1,27 @@
+import { autorun } from 'mobx';
+import store from '../store';
+
+class {
+  onMount() {
+    autorun(() => {
+      // De-reference the observables the component relies on
+      store.value;
+      this.forceUpdate();
+    })
+  }
+  
+  increment() {
+    store.increment();
+  }
+  
+  decrement() {
+    store.decrement();
+  }
+}
+
+<div>
+  <counter({ value: store.value })
+    on-increment('increment')
+    on-decrement('decrement') 
+  />
+</div>

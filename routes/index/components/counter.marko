@@ -1,0 +1,35 @@
+class {
+  increment() {
+    this.emit('increment');
+  }
+  
+  decrement() {
+    this.emit('decrement');
+  }
+
+  incrementIfOdd() {
+    if (this.input.value % 2 !== 0) {
+      this.increment();
+    }
+  }
+  
+  incrementAsync() {
+    setTimeout(() => {
+      this.increment();
+    }, 1000);
+  }
+}
+
+<div>
+  Current count: ${input.value}
+  <p>
+    <button on-click('increment')>+</button>
+    <button on-click('decrement')>-</button>
+    <button on-click('incrementIfOdd')>
+      Increment if odd
+    </button>
+    <button on-click('incrementAsync')>
+      Increment async
+    </button>
+  </p>
+</div>
